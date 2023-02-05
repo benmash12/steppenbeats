@@ -1,0 +1,29 @@
+{{>header}}
+
+    <div class="conx overhide padten">
+		<div class="wide radthree padten dark-green-bg real-bord">
+			<h1 class="heading black-green">Cart</h1>
+			<div id="cart">
+                <p class="panP padtwenty  semi-white-bg slim light-green text-center"><i class="fa fa-spinner fa-pulse"></i> Loading your cart...</p>
+            </div>
+            <br>
+            <div class="hr"></div>
+            <br>
+            <div class="cedit">
+                <h3 class="cedit-left light-green font14 thick">Gross Total</h3>
+                <p id="gtot" class="cedit-right green font16"><i class="fa fa-spinner fa-pulse"></i></p>
+            </div>
+            <div class="cedit">
+                <h3 class="cedit-left light-green font14 thick">Promo Code <button onclick="addPromoCodeToCart()" class="btn btn-success btn-xs"><i class="fa fa-plus"></i></button></h3>
+                <p id="pcod" class="cedit-right green texify font16">-</p>
+            </div>
+            <div class="cedit">
+                <h3 class="cedit-left light-green font14 thick">Net Total</h3>
+                <p id="ntot" class="cedit-right green font16"><i class="fa fa-spinner fa-pulse"></i></p>
+            </div>
+            <button onclick="checkout()" class="panButton wide dark-green-bg light-green black-out no-side-margin overhide">Checkout</button>
+		</div>
+    </div>
+<br>
+
+    {{>footer}}

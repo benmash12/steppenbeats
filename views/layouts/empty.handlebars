@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>{{page.title}} | {{site.brand}}</title>
+	<meta charset="utf-8">
+	<meta name="theme-color" content="{{site.themeColor}}">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta content="{{site.keywords}}" name="keywords">
+	<meta name="description" content="{{page.description}}">
+	<meta property="og:description" content="{{page.description}}">
+	<meta name="author" content="{{site.developer}}" >
+	<link href="{{site.addr}}{{site.favicon}}" rel="icon">
+	{{#if page.cover}}
+			<meta content="{{page.cover}}" property="og:image">
+			<meta name="twitter:image" content="{{page.cover}}"/>
+			<meta name="image" content="{{page.cover}}"/>
+		{{else}}
+			<meta content="{{site.addr}}{{site.image}}" property="og:image">
+			<meta name="twitter:image" content="{{site.addr}}{{site.image}}"/>
+			<meta name="image" content="{{site.addr}}{{site.image}}"/>
+	{{/if}}
+	<meta name="twitter:card" content="summary"/>
+	<meta name="twitter:site" content="{{site.domain}}"/>
+	<meta name="twitter:title" content="{{page.title}} | {{site.brand}}"/>
+	<meta name="title" content="{{page.title}} | {{site.brand}}"/>
+	<meta name="twitter:description" content="{{page.description}}"/>
+	<link href="{{site.addr}}{{site.appleFavicon}}" rel="apple-touch-icon">
+	<meta name="twitter:creator" content="{{site.brand}}"/>
+	<script src="/frameworks/socket.io.js"></script>
+	<script src="/frameworks/jquery/jquery-3.4.1.min.js"></script>
+	<script src="/frameworks/popper/popper.min.js"></script>
+	<link rel="stylesheet" href="/frameworks/bootstrap/css/bootstrap.min.css">
+	<script src="/frameworks/bootstrap/js/bootstrap.min.js"></script>
+	{{#if page.uploader}}
+	<script src="/siofu/client.js"></script>
+	{{/if}}
+	<link href="/frameworks/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<script src="/frameworks/bootbox.min.js"></script>
+	<script type="text/javascript">
+	var socket = io("{{site.addr}}",{
+		query:{token:"{{site.socketToken}}"}
+	});
+	var dnow = {{dnow}};
+	var year = {{date.year}};
+	var siteurl = "{{site.addr}}";
+	var brandxxx = "{{site.brand}}";
+	var csrfx = "{{_csrfToken}}";
+	const cur = {
+	'sym':'{{{site.currency}}}',
+	'abb':'{{site.currencyABBR}}'
+	};
+	</script>
+	<script src="/js/all.js"></script>
+	<script src="/js/main.js"></script>
+	{{#if page.script}}
+	<script src="/js/{{page.script}}.js"></script>
+	{{/if}}
+	<link rel="stylesheet" href="/css/all.css" />
+	<link rel="stylesheet" href="/css/main.css" />
+	{{#if page.style}}
+	<link rel="stylesheet" href="/css/{{page.style}}.css" />
+	{{/if}}
+	{{#if page.uploader}}
+		<script src="/js/uploader.js"></script>
+	{{/if}}
+	{{#if page.paystack}}
+		<script src="https://js.paystack.co/v1/inline.js"></script>
+	{{/if}}
+	{{#if page.ni}}
+		<meta name="robots" content="noindex">
+	{{/if}}
+	{{#if page.ck}}
+		<script src="/ckeditor/ckeditor.js"></script>
+	{{/if}}
+	{{#if page.share}}
+		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e29c0a3afa6ebfc"></script>
+	{{/if}}
+	{{{_sections.head}}}
+</head>
+<body>
+	{{>preloader}}
+	{{{body}}} 
+	{{>btt}}
+<div id="note" class=""><div id="note-head"><i id="node-head-left" class="fa fa-bell"></i><div><i onclick="muteNote()" id="node-head-right" class="fa fa-bell-slash-o"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i onclick="closeNote()" id="node-head-right" class="fa fa-close"></i></div></div><div id="note-body"><p id="noti" class="panP light-grey"></p></div></div>
+<input type="hidden" id="activeuser" value="{{activeUser}}" readonly>
+<div id="tab-picture" class="tab">
+		<div id="picture-view">
+			<img id="picture-img" src="" alt="">
+			<button onclick="cli()" id="picture-btn"><i class="fa fa-close"></i></button>
+		</div>
+	</div>
+<!-- audio player interface-->
+	<div id="audio"><div id="audioLeft"><div id="audioLeftLeft"><img id="audioImage" class="img_res" src=""><div id="audioFeedback"><i id="audioMessage" class="fa fa-warning"></i></div></div><div id="audioLeftRight"><div id="audioTrack"><span id="audioCurrentTime" class="audioDigits">0:00</span><div id="audioCurrentTrack"><div id="audioKeep"></div></div><span id="audioTotalTime" class="audioDigits">0:00</span></div><div id="audioButtons"><button id="audioStop" onclick="audioStop()"><i class="fa fa-stop"></i></button><button id="audioPlay" onclick="audioPlay()"><i class="fa fa-play"></i></button><button id="audioHide" onclick="toggleAudio()"><i class="fa fa-close"></i></button></div></div></div><div onclick="toggleAudio()" id="audioRight"><i class="fa fa-chevron-right"></i></div></div>
+
+</body>
+</html>
+

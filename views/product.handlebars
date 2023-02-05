@@ -1,0 +1,79 @@
+{{>header}}
+
+    <div class="conx overhide padten">
+		<div class="wide radthree padten dark-green-bg real-bord">
+            <div id="prox-img" style="background-image:url('{{product.picture}}');" class="img-bg radthree" ></div>
+            <h1 class="heading thick wide text-center green overhide no-margin padfive">{{product.title}}</h1>
+            <p class="wide text-center slim panP overhide padfive light-green">{{product.genre}} {{product.category}} {{#temp product.category product.tempo}}{{/temp}}</p>
+            <p class="text-center wide green thick font16">
+                {{#is product.price 0}}
+                Free
+                {{/is}}
+                {{#isnot product.price 0}}
+                    {{#is product.discount 0}}
+                        {{{site.currency}}}{{#cash product.price}}{{/cash}}
+                    {{/is}}
+                    {{#isnot discount 0}}
+                        {{{site.currency}}}{{#cashx product.price product.discount}}{{/cashx}}<span class="strikecc dark-red thick"><strike>{{{site.currency}}}{{#cash product.price}}{{/cash}}</strike> (-{{product.discount}}%)</span>
+                    {{/isnot}}
+                {{/isnot}}
+            </p>
+            {{#is product.category 'Beat'}}
+                {{#isnot product.price 0}}
+                    <p class="wide text-center slim panP overhide padfive green">Buy this beat today, be the only person to use it.</p>
+                {{/isnot}}
+            {{/is}}
+            <div class="text-center wide">
+                <button onclick="play({{product.id}})" class="panButton dark-green-bg light-green black-out radfive">Play Demo</button>
+                <button onclick="addToCart({{product.id}})" class="panButton dark-green-bg light-green black-out radfive">Add to Cart</button>
+            </div>
+			<br>
+            <div class="text-center wide overhide">
+                <p class="wide text-center slim panP overhide padfive light-green">Please let others know about this {{product.category}}, share below:</p>
+                <div class="text-center addthis_inline_share_toolbox"></div>
+            </div>
+            <br><br><br><br>
+			<h2 class="heading black-green">Recommended For You</h2>
+			{{#is products.length 0}}
+			<br>
+			<p class="panP slim text-center light-green">Sorry! not available at the moment. Please check back later.</p>
+			<br><br>
+			{{/is}}
+			{{#isnot products.length 0}}
+			<div id="productxxx" class="products">
+			{{#each products}}
+				<div class="product" name="product">
+					<div name="product image" style=" background-image:url('{{picture}}')" class="product-img img-bg">
+					</div>
+					<div class="product-det">
+						<p name="product title" class="product-title green">{{title}}</p>
+						<p name="product desc" class="product-desc light-black">{{genre}} {{category}}{{#temp category tempo}}{{/temp}}</p>
+						<p name="product price" class="product-price green">
+							{{#is price 0}}
+							Free
+							{{/is}}
+							{{#isnot price 0}}
+								{{#is discount 0}}
+									{{{../site.currency}}}{{#cash price}}{{/cash}}
+								{{/is}}
+								{{#isnot discount 0}}
+									{{{../site.currency}}}{{#cashx price discount}}{{/cashx}}<span class="strike dark-red"><strike>{{{../site.currency}}}{{#cash price}}{{/cash}}</strike> (-{{discount}}%)</span>
+								{{/isnot}}
+							{{/isnot}}
+						</p>
+						<div>
+							<button onclick="play({{id}})" class="product-play dark-green-bg green black-out"><i class="fa fa-play"></i></button>
+							<button onclick="addToCart({{id}})" class="product-cart dark-green-bg green black-out"><i class="fa fa-cart-plus"></i></button>
+							<button onclick="link('/item/{{id}}/{{#sanitize genre}}{{/sanitize}}-{{#sanitize category}}{{/sanitize}}/{{#sanitize title}}{{/sanitize}}')" class="product-cart dark-green-bg green black-out"><i class="fa fa-link"></i></button>
+						</div>
+					</div>
+				</div>
+			{{/each}}
+			</div>
+			<button onclick="loadMore(this)" class="panButton radfive black-out dark-green-bg light-green">Load More</button>
+			{{/isnot}}
+		</div>
+	</div>
+
+    {{>reserved}}
+    {{>footer}}

@@ -1,0 +1,272 @@
+{{#section 'head'}}
+	<script>
+		var defaultCover = "{{site.image}}";
+		var adminUN = "{{username}}";
+		var plim = {{site.parseLimit}};
+	</script>
+{{/section}}
+
+<div id="container">
+		<div id="sidePane">
+		</div>
+		<div id="side" class="titi">
+			<div id="sideTop">
+				<div id="userDet">
+					<span ondblclick="load_admin()" class="cursor">{{username}}</span> <button onclick="logout()"><i class="fa fa-power-off"></i></button><br>
+				</div>
+				<a href="/" id="logo">
+					<img height="50px" width="auto" src="{{site.logo}}">
+				</a>
+				<button onclick="menu()" id="sideClose"><i class="fa fa-arrow-left"></i></button>
+			</div>
+			<div id="sideLinks" class="">
+				<div class="linkGroup">
+					<div onclick="addProduct()" class="link"><i class="linkIcon fa fa-plus-circle"></i><span class="linkText">Add Product</span><span class="linkBadge"><span id="" class="badge"></span></span></div>
+					<div onclick="dbtab(1)" class="link"><i class="linkIcon fa fa-dashboard"></i><span class="linkText">Dashboard</span><span class="linkBadge"><span id="" class="badge"></span></span></div>
+					<div onclick="dbtab(2)" class="link"><i class="linkIcon fa fa-th-large"></i><span class="linkText">Categories</span><span class="linkBadge"><span id="fa" class="badge"></span></span></div>
+					<div onclick="dbtab(3)" class="link"><i class="linkIcon fa fa-list"></i><span class="linkText">Products</span><span class="linkBadge"><span id="" class="badge"></span></span></div>
+					<div onclick="dbtab(4)" class="link"><i class="linkIcon fa fa-credit-card"></i><span class="linkText">Orders</span><span class="linkBadge"><span id="apprCount" class="badge"></span></span></div>
+					<div onclick="dbtab(5)" class="link"><i class="linkIcon fa fa-list-alt"></i><span class="linkText">Genres</span><span class="linkBadge"><span id="apprCount" class="badge"></span></span></div>
+					<div onclick="dbtab(8)" class="link"><i class="linkIcon fa fa-support"></i><span class="linkText">Support Inbox</span><span class="linkBadge"><span id="supportCount" class="badge"></span></span></div>
+					<div onclick="dbtab(9)" class="link"><i class="linkIcon fa fa-percent"></i><span class="linkText">Manage Promo Codes</span><span class="linkBadge"><span id="" class="badge"></span></span></div>
+					<div onclick="dbtab(10)" class="link"><i class="linkIcon fa fa-cogs"></i><span class="linkText">Settings</span><span class="linkBadge"><span id="" class="badge"></span></span></div>
+				</div>
+				<div class="linkGroup">
+					<div onclick="downloadLogs()" class="link"><i class="linkIcon fa fa-clock-o"></i><span class="linkText">Download Logs</span><span class="linkBadge"><span id="" class="badge"></span></span></div>
+					<div onclick="addLog()" class="link"><i class="linkIcon fa fa-plus-circle"></i><span class="linkText">Add Log</span><span class="linkBadge"><span id="" class="badge"></span></span></div>
+					<div onclick="deleteLogs()" class="link"><i class="linkIcon fa fa-trash"></i><span class="linkText">Delete Site Logs</span><span class="linkBadge"><span id="" class="badge"></span></span></div>
+					<div onclick="sql()" class="link"><i class="linkIcon fa fa-server"></i><span class="linkText">Query DB</span><span class="linkBadge"><span id="" class="badge"></span></span></div>
+				</div>
+			</div>
+		</div>
+		<div id="mainPane">
+			<header id="header">
+				<div id="header_side">
+					<button onclick="menu()" ><i class="fa fa-navicon"></i></button>
+				</div>
+				<div id="header_main" class="mont">
+					<button id="dbb-1" onclick="dbtab(1)" class="tabBtn hactive">Dashboard</button>
+					<button id="dbb-2" onclick="dbtab(2)" class="tabBtn">Categories</button>
+					<button id="dbb-3" onclick="dbtab(3)" class="tabBtn">Products</button>
+					<button id="dbb-4" onclick="dbtab(4)" class="tabBtn">Orders</button>
+					<button id="dbb-5" onclick="dbtab(5)" class="tabBtn">Genres</button>
+					<button id="dbb-8" onclick="dbtab(8)" class="tabBtn">Support Inbox</button>
+					<button id="dbb-9" onclick="dbtab(9)" class="tabBtn">Manage Promo Codes</button>
+					<button id="dbb-10" onclick="dbtab(10)" class="tabBtn">Settings</button>
+				</div>
+			</header>
+			
+			<!--db tabs-->
+			<div id="dbtab-1" class="dbtab dactive">
+				 <div class="padten stats">
+				 	<div class="stat titi">
+				 		<h5 class="dark-grey-bg white">Today's Visits</h5>
+				 		<p id="today" class="light-black"><i class="fa fa-spinner fa-pulse"></i></p>
+				 	</div>
+				 	<div class="stat titi">
+				 		<h5 class="dark-grey-bg white">Month's Visits</h5>
+				 		<p id="month" class="light-black"><i class="fa fa-spinner fa-pulse"></i></p>
+				 	</div>
+				 	<div class="stat titi">
+				 		<h5 class="dark-grey-bg white">Total Visits</h5>
+				 		<p id="visits" class="light-black"><i class="fa fa-spinner fa-pulse"></i></p>
+				 	</div>
+				 	<div class="stat titi">
+				 		<h5 class="dark-grey-bg white">Mode</h5>
+				 		<p class="light-black">{{site.mode}}</p>
+				 	</div>
+				 	<div class="stat titi">
+				 		<h5 class="dark-grey-bg white">Connected Sockets</h5>
+				 		<p id="socks" class="light-black"><i class="fa fa-spinner fa-pulse"></i></p>
+				 	</div>
+				 	<div class="stat titi">
+				 		<h5 class="dark-grey-bg white">Verified Accounts</h5>
+				 		<p id="vu" class="light-black"><i class="fa fa-spinner fa-pulse"></i></p>
+				 	</div>
+				 	<div class="stat titi">
+				 		<h5 class="dark-grey-bg white">Blocked Accounts</h5>
+				 		<p id="bu" class="light-black"><i class="fa fa-spinner fa-pulse"></i></p>
+				 	</div>
+				 	<div class="stat titi">
+				 		<h5 class="dark-grey-bg white">Registered Accounts</h5>
+				 		<p id="ru" class="light-black"><i class="fa fa-spinner fa-pulse"></i></p>
+				 	</div>
+				 	<div class="stat titi">
+				 		<h5 class="dark-grey-bg white">Categories</h5>
+					 	<p id="dclen" class="light-black"><i class="fa fa-spinner fa-pulse"></i></p>
+				 	</div>
+				 	<div class="stat titi">
+				 		<h5 class="dark-grey-bg white">Products</h5>
+				 		<p id="dplen" class="light-black"><i class="fa fa-spinner fa-pulse"></i></p>
+				 	</div>
+				 	<div class="stat titi">
+				 		<h5 class="dark-grey-bg white">Orders</h5>
+				 		<p id="dolen" class="light-black"><i class="fa fa-spinner fa-pulse"></i></p>
+				 	</div>
+				 	<div class="stat titi">
+				 		<h5 class="dark-grey-bg white">Income</h5>
+				 		<p id="tbl" class="light-black"><i class="fa fa-spinner fa-pulse"></i></p>
+				 	</div>
+				 </div>
+			</div>
+			
+			
+			<div id="dbtab-2" class="dbtab">
+				 <h3 class="heading dark-grey marten">Categories <button onclick="addCategory()" class="silver-bg black-out dark-grey radfive no-border"><i class="fa fa-plus"></i></button></h3>
+				 <div id="categoriesx" class="wide padten">
+					 <p class="panP grey padtwenty overhide text-center"><i class="fa fa-pulse fa-spinner"></i> Loading categories...</p>
+				 </div>
+			</div>
+
+			<div id="dbtab-3" class="dbtab">
+				 <h3 class="heading dark-grey marten">Products <button onclick="addProduct()" class="silver-bg black-out dark-grey radfive no-border"><i class="fa fa-plus"></i></button></h3>
+				 <div id="productsx" class="wide padten">
+					 <p class="panP grey padtwenty overhide text-center"><i class="fa fa-pulse fa-spinner"></i> Loading products...</p>
+				 </div>
+			</div>
+
+			<div id="dbtab-4" class="dbtab">
+				<h3 class="heading dark-grey marten">Orders</h3>
+				 <div id="ordersx" class="wide padten">
+					 <p class="panP grey padtwenty overhide text-center"><i class="fa fa-pulse fa-spinner"></i> Loading orders...</p>
+				 </div>
+			</div>
+
+			<div id="dbtab-5" class="dbtab">
+				<h3 class="heading dark-grey marten">Genres <button onclick="addGenre()" class="silver-bg black-out dark-grey radfive no-border"><i class="fa fa-plus"></i></button></h3>
+				 <div id="genresx" class="wide padten">
+					 <p class="panP grey padtwenty overhide text-center"><i class="fa fa-pulse fa-spinner"></i> Loading genres...</p>
+				 </div>
+			</div>
+
+			<div id="dbtab-8" class="dbtab">
+				<div id="inbox" class="padten">
+                    <div class="wide overhide padtwenty white-bg text-center"><p class="panP grey"><i class="fa fa-pulse fa-spinner"></i> Loading support messages...</p></div>
+                </div>
+			</div>
+
+			<div id="dbtab-9" class="dbtab">
+				<h3 class="heading dark-grey marten">Promo Codes <button onclick="addPromo()" class="silver-bg black-out dark-grey radfive no-border"><i class="fa fa-plus"></i></button></h3>
+				<div id="promosx" class="wide padten">
+					<p class="panP grey padtwenty overhide text-center"><i class="fa fa-pulse fa-spinner"></i> Loading promo codes...</p>
+				</div>
+			</div>
+
+			<div id="dbtab-10" class="dbtab">
+				 <h3 class="heading dark-grey marten">Settings</h3>
+				 <div id="settings" class="wide padten">
+					 <button onclick="updatePass('Ralg')" class="panButton dark-green-bg white black-out radfive overhide">Change Password</button>
+				 </div>
+			</div>
+			
+			
+			
+			<!--end of dbtabs -->
+		</div>
+	</div>
+	
+
+
+
+
+
+<div id="tab-add-product" class="tab silveri-bg">
+	<div class="headerx titi light-b white-bg">
+		<p class="dark-grey">Add Product</p>
+		<button onclick="cli()" class="dark-grey no-bg"><i class="fa fa-close"></i></button>
+	</div>
+	<div class="contx padten">
+		<div class="white-bg black-outx padten">
+			<p class="panP grey"><small>fields with <span class="red">*</span> are required.</small></p>
+
+			<div class="inp martwenty no-side-margin">
+			<p class="panP no-margin no-padding titi"><span class="thick light-black">Category <span class="red">*</span></span></p>
+			<select name="category" id="ap-cat"  class="wide light-border padten font14 radfive white-bg slim light-black">
+			</select>
+			</div>
+
+			<div class="inp martwenty no-side-margin">
+			<p class="panP no-margin no-padding titi"><span class="thick light-black">Genre <span class="red">*</span></span></p>
+			<select name="genre" id="ap-gen"  class="wide light-border padten font14 radfive white-bg slim light-black">
+			</select>
+			</div>
+
+			<div class="inp martwenty no-side-margin">
+			<p class="panP no-margin no-padding titi"><span class="thick light-black">Title <span class="red">*</span></span><br>
+			<small class="silver grey">Title of product. It cannot contain characters such as ", <, or >. Max length is 100.</small></p>
+			<input name="title" id="ap-tit" maxlength="100" type="text" class="wide light-border padten font14 radfive white-bg slim light-black">
+			</div>
+
+			<div class="inp martwenty no-side-margin">
+			<p class="panP no-margin no-padding titi"><span class="thick light-black">Price <span class="red">*</span></span><br>
+			<small class="silver grey">Currency: {{{site.currency}}}</small></p>
+			<input name="title" id="ap-pri" maxlength="13" type="number" class="wide light-border padten font14 radfive white-bg slim light-black">
+			</div>
+
+			<div class="inp martwenty no-side-margin">
+			<p class="panP no-margin no-padding titi"><span class="thick light-black">Discount (%)<span class="red"></span></span><br>
+			<small class="silver grey">Are you offering a discount for this product? What is the percentage of it? It will be deducted from the price when ever this product is ordered. Leave it at 0 if this product has no discount.</small></p>
+			<input name="title" id="ap-dis" value="0" min="0" max="100" type="number" class="wide light-border padten font14 radfive white-bg slim light-black">
+			</div>
+
+			<div class="inp martwenty no-side-margin">
+			<p class="panP no-margin no-padding titi"><span class="thick light-black">Stock/Quantity <span class="red">*</span></span><br>
+			<small class="silver grey">How many of this product do you have in stock? Minimum: 1.</small></p>
+			<input name="title" id="ap-sto" min="1" maxlength="20" type="number" class="wide light-border padten font14 radfive white-bg slim light-black">
+			</div>
+
+			<div class="inp martwenty no-side-margin">
+			<p class="panP no-margin no-padding titi"><span class="thick light-black">Tempo <span class="red"></span></span><br>
+			<small class="silver grey">If applicable</small></p>
+			<input name="tempo"  id="ap-tem" max="500" min="1" type="number" class="wide light-border padten font14 radfive white-bg slim light-black">
+			</div>
+
+			<div class="inp martwenty no-side-margin">
+			<p class="panP no-margin no-padding titi"><span class="thick light-black">Uploads <span class="red">*</span></span><br>
+			<small class="silver grey">Three uploads in this order: cover image; product file; product demo audio file.</small></p>
+			<div id="ap-imx" class="add-images horizon">
+				<div id="ap-ima" data-file="" data-type="image" data-accept="image/jpeg, image/png" data-max="2000000" onclick="addProductFile(this)" class="add-image">
+					<img>
+					<span><i class="fa fa-upload"></i></span>
+				</div>
+				<div id="ap-fil" data-file="" data-type="" data-accept="" data-max="100000000" onclick="addProductFile(this)" class="add-image">
+					<img>
+					<span><i class="fa fa-upload"></i></span>
+				</div>
+				<div id="ap-dem" data-file="" data-type="audio" data-accept="audio/*" data-max="10000000" onclick="addProductFile(this)" class="add-image">
+					<img>
+					<span><i class="fa fa-upload"></i></span>
+				</div>
+			</div>
+			</div>
+
+			<div class="inp martwenty no-side-margin">
+			<p class="panP no-margin no-padding titi"><span class="thick light-black">Privacy <span class="red">*</span></span><br>
+			<small class="silver grey">If 'admin only', this product can only be viewed from the admin portal. If 'public', everyone can view, order this product. The privacy of a product can be changed anytime.</small></p>
+			<select name="privacy" id="ap-prv"  class="wide light-border padten font14 radfive white-bg slim light-black">
+				<option value="0">Admin Only</option>
+				<option value="1">Public</option>
+			</select>
+			</div>
+
+			<button id="apxx" class="panButton silver-bg light-black black-out radfive">Add Product</button>
+		
+		</div>
+	</div>
+</div>
+
+<div class="tab silver-bg" id="tab-message">
+	<div data-username="userone" id="mhead" class="mhead">
+		<p id="muser" onclick="" class="texify"></p>
+		<button onclick="minfo()"><i class="fa fa-info-circle"></i></button>
+		<button onclick="cli()"><i class="fa fa-close"></i></>
+	</div>
+	<div id="mholder" class="">
+		
+	</div>
+	
+	<div id="msend" data-user="" class="msend">
+		<textarea id="mtext" placeholder="type message..."></textarea>
+		<button id="sendBtnxx" onclick="sendPic()"><i class="fa fa-camera"></i></button>
+	</div>
+</div>

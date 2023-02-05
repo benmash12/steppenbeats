@@ -1,0 +1,16 @@
+<input type="hidden" id="resnn" value="{{reserved}}">
+<script>
+var reserved;
+var fl = {{site.fetchLimit}};
+$(document).ready(function(){
+	var res = $("#resnn").val();
+	$("#resnn").detach();
+	try{
+		reserved = JSON.parse(res);
+	}
+	catch(err){
+		reserved = [];
+	}
+});
+
+</script>

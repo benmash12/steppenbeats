@@ -1,0 +1,41 @@
+{{>header}}
+
+<div class="padten cont titi">
+    <div class="padten semi-white-bg black-outx">
+        {{#if page.message}}
+			<div class="alert alert-success alert-dismissable fade in">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			{{page.message}}
+			</div>
+		{{/if}}
+        <h1 class="panH2 light-green no-side-padding no-side-margin slim">Sign In</h1>
+        
+        <p class="panP no-side-padding no-side-margin light-green slim"><small>All fields with <span class="red">*</span> are required.</small></p>
+        
+        <div class="inp martwenty no-side-margin">
+			<p class="panP no-margin no-padding titi"><span class="thick green">Email <span class="red">*</span></span></p>
+			<input id="logem" name="email" type="text" class="wide light-border padten font14 radfive white-bg slim dark-green">
+		</div>
+
+        <div class="inp martwenty no-side-margin">
+			<p class="panP no-margin no-padding titi"><span class="thick green">Password <span class="red">*</span></span><br>
+			<small class="light-green slim">Password is case-sensitive.</small></p>
+			<input id="logpw" name="password" type="password" class="wide light-border padten font14 radfive white-bg slim dark-green">
+		</div>
+
+         <p class="panP no-padding titi green">
+			<input id="saveii" type="checkbox"> Remember Device?
+		</p>
+        <br>
+        <button onclick="userLogin()" class="panButton green-bg black-out dark-green radfive">Sign In</button>
+		<p class="panP no-padding titi light-green">
+			Not yet signed up? <a class="green" href="/account/sign-up">Click here to Sign Up</a>
+		</p>
+        <p class="panP no-padding titi light-green">
+			Forgot password? <span class="green cursor" onclick="forgotpass()">Click Here</span>
+		</p>
+    </div>
+</div>
+
+
+{{>footer}}

@@ -1,0 +1,28 @@
+{{>header}}
+
+<div class="padten cont titi">
+    <div class="padten semi-white-bg black-outx">
+        <h1 class="panH2 light-green no-side-padding no-side-margin slim">Reset Password</h1>
+        
+        <p class="panP no-side-padding no-side-margin light-green slim"><small>All fields are required.</small></p>
+        
+        <div class="inp martwenty no-side-margin">
+			<p class="panP no-margin no-padding titi"><span class="thick green">New Password <span class="text-danger"></span></span><br>
+			<small class="light-green">Create a very strong password. It must contain at least one letter, one number, must be between 6 - 30 characters long, and must not contain spaces.</small></p>
+			<input id="forpw" name="password" type="password" class="wide light-border padten font14 radfive white-bg slim dark-green">
+		</div>
+		
+		<div class="inp martwenty no-side-margin">
+			<p class="panP no-margin no-padding titi"><span class="thick green">Confirm New Password <span class="text-danger"></span></span><br>
+			<small class="light-green">Type in your new password again.</small></p>
+			<input id="forcpw" name="confirm password" type="password" class="wide light-border padten font14 radfive white-bg slim dark-green">
+		</div>
+		<input id="email" type="hidden" value="{{email}}" readonly>
+		<input id="ref" type="hidden" value="{{ref}}" readonly>
+		<button onclick="forg()" class="panButton black-out green-bg dark-green radfive">Reset Password</button>
+		<br><br>
+    </div>
+</div>
+
+
+{{>footer}}

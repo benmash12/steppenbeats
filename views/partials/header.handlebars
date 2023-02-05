@@ -1,0 +1,38 @@
+<noscript><span style="font-size:30px; padding:20px;display:block;width:100%;text-align:center;overflow:hidden;color:#e00;">Please enable javascipt and reload this page to use this website.</span></noscript>
+<div id="header">
+		<div id="header-left">
+			<img src="{{site.logo}}" alt="logo">
+		</div>
+		<div id="header-right">
+			<button onclick="menux()" id="menu-btn"><i class="fa fa-navicon"></i></button>
+			<nav id="nav">
+				<a href="/" class="navitem{{#if page.home}} active{{/if}}"><i class="fa fa-home"></i><span>Home</span></a>
+				<a href="/premium" class="navitem{{#if page.premium}} active{{/if}}"><i class="fa fa-music"></i><span>Premium</span></a>
+				<a href="/free" class="navitem{{#if page.free}} active{{/if}}"><i class="fa fa-music"></i><span>Free</span></a>
+				<a href="/licensing" class="navitem{{#if page.licensing}} active{{/if}}"><i class="fa fa-pencil"></i><span>Licensing</span></a>
+				<a href="/about-us" class="navitem{{#if page.about}} active{{/if}}"><i class="fa fa-question-circle"></i><span>About us</span></a>
+				<a href="/contact-us" class="navitem{{#if page.contact}} active{{/if}}"><i class="fa fa-comment"></i><span>Contact us</span></a>
+				<a href="/account/sign-up" class="navitem{{#if page.signup}} active{{/if}}"><i class="fa fa-user"></i><span>Sign Up</span></a>
+				{{#if activeUser}}
+						<a href="/account/dashboard" class="navitem{{#if page.dashboard}} active{{/if}}"><i class="fa fa-dashboard"></i><span>Dashboard</span></a>
+						<a onclick="userLogout()" class="navitem cursor"><i class="fa fa-sign-out"></i><span>Sign Out</span></a>
+					{{else}}
+						<a href="/account/sign-in" class="navitem{{#if page.signin}} active{{/if}}"><i class="fa fa-sign-in"></i><span>Sign In</span></a>
+				{{/if}}
+			</nav>
+			{{#if page.cart}}
+			<button class="hide" onclick="link('/cart')" id="cart-btn"><i class="fa fa-shopping-cart"></i><span id="cartcount"></span></button>
+			{{else}}
+			<button onclick="link('/cart')" id="cart-btn"><i class="fa fa-shopping-cart"></i><span id="cartcount"></span></button>
+			{{/if}}
+			<button onclick="searchInit()" id="search-btn"><i class="fa fa-search"></i></button>
+		</div>
+	</div>
+
+	<input onkeyup="searchx(this.value)" type="text" placeholder="Live Search" type="text" id="searchbar" />
+	<button onclick="searchEnd()" id="searchclose"><i class="fa fa-close"></i></button>
+	<div id="searchres">
+	{{>cook}}	
+	</div>
+
+

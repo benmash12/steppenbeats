@@ -1,0 +1,67 @@
+{{>header}}
+{{>intro}}
+
+    <div class="conx overhide padten">
+		<div class="wide radthree padten dark-green-bg real-bord">
+			<h2 class="heading black-green">{{genre}}({{key}}) <button onclick="tab('browsegenres')" class="no-bg green no-border">More Genres</button></h2>
+			{{#is products.length 0}}
+			<br>
+			<p class="panP slim text-center light-green">Sorry! not available at the moment. Please check back later.</p>
+			<br><br>
+			{{/is}}
+			{{#isnot products.length 0}}
+			<div id="productxxx" class="products">
+			{{#each products}}
+				<div class="product" name="product">
+					<div name="product image" style=" background-image:url('{{picture}}')" class="product-img img-bg">
+					</div>
+					<div class="product-det">
+						<p name="product title" class="product-title green">{{title}}</p>
+						<p name="product desc" class="product-desc light-black">{{genre}} {{category}}{{#temp category tempo}}{{/temp}}</p>
+						<p name="product price" class="product-price green">
+							{{#is price 0}}
+							Free
+							{{/is}}
+							{{#isnot price 0}}
+								{{#is discount 0}}
+									{{{../site.currency}}}{{#cash price}}{{/cash}}
+								{{/is}}
+								{{#isnot discount 0}}
+									{{{../site.currency}}}{{#cashx price discount}}{{/cashx}}<span class="strike dark-red"><strike>{{{../site.currency}}}{{#cash price}}{{/cash}}</strike> (-{{discount}}%)</span>
+								{{/isnot}}
+							{{/isnot}}
+						</p>
+						<div>
+							<button onclick="play({{id}})" class="product-play dark-green-bg green black-out"><i class="fa fa-play"></i></button>
+							<button onclick="addToCart({{id}})" class="product-cart dark-green-bg green black-out"><i class="fa fa-cart-plus"></i></button>
+							<button onclick="link('/item/{{id}}/{{#sanitize genre}}{{/sanitize}}-{{#sanitize category}}{{/sanitize}}/{{#sanitize title}}{{/sanitize}}')" class="product-cart dark-green-bg green black-out"><i class="fa fa-link"></i></button>
+						</div>
+					</div>
+				</div>
+			{{/each}}
+			</div>
+			<button onclick="loadMore(this)" class="panButton radfive black-out dark-green-bg light-green">Load More</button>
+			{{/isnot}}
+		</div>
+	</div>
+
+    {{>footer}}
+
+    {{>reserved}}
+
+<div id="tab-browsegenres" class="tab black-green-bg">
+	<div class="headerx titi dou-b dark-green-bg">
+		<p class="light-green">Genres</p>
+		<button onclick="cli()" class="green no-bg"><i class="fa fa-close"></i></button>
+	</div>
+	<div id="genress" class="wide padten">
+		{{#is genres.length 0}}
+		<p class="panP text-center dark-green padten slim">Sorry! No genres added yet.</p>
+		{{/is}}
+		{{#isnot genres.length 0}}
+			{{#each genres}}
+				<a href="/genre/{{id}}/{{#sanitize genre}}{{/sanitize}}/all" class="genx"><span class="light-green">{{genre}}</span></a>
+			{{/each}}
+		{{/isnot}}
+	</div>
+</div>

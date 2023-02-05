@@ -1,0 +1,37 @@
+{{>header}}
+
+    <div class="conx overhide padten">
+		<div class="wide radthree padten dark-green-bg real-bord">
+			<h2 class="heading black-green">Checkout</h2>
+            <p class="panP no-side-margin no-side-padding light-green">
+                Dear <strong class="green">{{order.fullname}}</strong>, find the details of your order below:
+                <br><br>
+                <div class="well padten no-bg no-border black-out">
+                    <p class="panP no-side-margin no-side-padding light-green">Customer's Name: <strong class="green">{{order.fullname}}</strong></p>
+                    <p class="panP no-side-margin no-side-padding light-green">Customer's Email: <strong class="green">{{order.email}}</strong></p>
+                    <p class="panP no-side-margin no-side-padding light-green">Order Total: <strong class="green">{{{site.currency}}}{{order.price}}</strong></p>
+                </div>
+                <div class="container-fluid no-padding overhide">
+                    <div class="col-xs-6 padfive no-paaing-left">
+                        {{#is order.price 0}}
+                        <button onclick="completeOrder({{order.id}},'{{order.orderid}}','{{order.userid}}')" class="panButton wide no-side-margin radfive greenx-bg black-out silver thick">Complete Order</button>
+                        {{/is}}
+                        {{#isnot order.price 0}}
+                        <button onclick="completeOrder({{order.id}},'{{order.orderid}}','{{order.userid}}')" class="panButton wide no-side-margin radfive greenx-bg black-out silver thick">Proceed to Payment</button>
+                        {{/isnot}}
+                    </div>
+                    <div class="col-xs-6 padfive no-padding-right">
+                        <button onclick="cancelOrder({{order.id}},'{{order.orderid}}')" class="panButton wide no-side-margin radfive redx-bg black-out silver thick">Cancel Order</button>
+                    </div>
+                    <br><br><br><br><br>
+                    <p class="panP no-side-padding no-side-margin light-green"><strong class="thick green"><u>N.B.:</u></strong> For premium (paid for) beat(s), it/they get hidden from the public you have purchased them/completed the order, i.e. Only the licensed buyer has the rights to the beat(s). While 
+                    sample packs can be purchased and used buy multple people. <br><br>For every order completed, we issue a license which also states your rights to the items you have purchased and terms of agreement between you and us ({{site.brand}}). You will be able to download this license once your order is completed 
+                    and you can also revisit this site and download a license for your order anytime at our <a href="/licensing" class="green thick">Licensing</a> page. <br><br> Thanks for doing business with us... We wish you a prosperous life!</p>
+                </div>
+            </p>
+
+		</div>
+    </div>
+
+
+    {{>footer}}

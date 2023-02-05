@@ -1,0 +1,26 @@
+{{>header}}
+
+<div class="padten cont titi">
+    <div class="padten semi-white-bg black-out">
+        <h1 class="panH2 light-green no-side-padding no-side-margin slim">Admin Login</h1>
+                
+        <div class="inp martwenty no-side-margin">
+			<p class="panP no-margin no-padding titi"><span class="thick green">Username</span></p>
+			<input id="logun" name="username" type="text" class="wide light-border padten font14 radfive white-bg slim light-black">
+		</div>
+
+        <div class="inp martwenty no-side-margin">
+			<p class="panP no-margin no-padding titi"><span class="thick green">Password</span><br>
+			<input id="logpw" name="password" type="password" class="wide light-border padten font14 radfive white-bg slim light-black">
+		</div>
+
+         <p class="panP no-padding titi green">
+			<input id="saveii" type="checkbox"> Remember Device?
+		</p>
+        <br>
+        <button onclick="adminLogin()" class="panButton black-out dark-green-bg light-green radfive">Login</button>
+    </div>
+</div>
+
+
+{{>footer}}

@@ -1,0 +1,9 @@
+<h1 class="panH2 titi light-black">{{page.title}}</h1>
+
+
+<div class="padtwenty">
+    <h2 class="panH2 titi slim dark-grey">Events (New - Old)</h2>
+    {{#each events}}
+    <a href="/event/{{id}}&{{token}}" class="panP green wide">{{title}}</a>
+    {{/each}}
+</div>

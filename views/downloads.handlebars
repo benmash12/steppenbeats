@@ -1,0 +1,28 @@
+{{>header}}
+
+    <div class="conx overhide padten">
+        {{#if newOrder}}
+        {{#if ema}}
+                <div class="alert alert-success alert-dismissable fade in">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                Your order has been confirmed and a confirmation email sent to you containing a download link which which expire in 48hrs for security reasons. But you can access your downloads below, and also anytime from your dashboard once you sign into your account. Note that accounts are created and activation emails sent to first-time customers. Please do check your inbox for emails from <strong class="green">{{site.brand}}</strong>. Thanks for doing business with us!
+                </div>
+            {{else}}
+                <div class="alert alert-success alert-dismissable fade in">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                Your order has been confirmed but an email could not be sent to you due to email API issues. You can access your downloads below, and also anytime from your dashboard once you sign into your account. Note that accounts are created and activation emails sent to first-time customers. Please do check your inbox for an activation/verification email from <strong class="green">{{site.brand}}</strong>. Thanks for doing business with us!
+                </div>
+        {{/if}}
+        {{/if}}
+		<div class="wide radthree padten dark-green-bg real-bord">
+            <p class="panP no-side-margin no-side-padding light-green"><span class="green">Your order has been confirmed!</span><br><br>Order ID: <strong class="green">{{order.orderid}}</strong></p>
+			<h2 class="heading black-green">Access Your Downloads</h2>
+            <div class="well padten no-bg no-border black-out">
+                <br>
+                {{#each products}}
+                <a href="/linkx/{{id}}-{{ref}}/{{#sanitize itemtitle}}{{/sanitize}}" class="panP no-side-margin no-side-padding light-green" download><span class="fa fa-download light-green"></span> <span class="light-green">download</span> <strong class="green">{{itemtitle}}</strong></a><br><br>
+                {{/each}}
+            </div>
+            <a href="/licensing?orderid={{order.orderid}}" class="panP no-side-margin no-side-padding white"> <span class="light-green">click here to download your </span> <strong class="green">License</strong></a><br><br>
+		</div>
+    </div>

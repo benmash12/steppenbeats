@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>{{site.slogan}}</title>
+	<meta charset="utf-8">
+	<meta name="theme-color" content="{{site.themeColor}}">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta content="{{site.keywords}}" name="keywords">
+	<meta name="description" content="{{site.description}}" >
+	<meta name="author" content="{{site.developer}}" >
+	<meta property="og:description" content="{{site.description}}" >
+	<meta content="{{site.addr}}{{site.image}}" property="og:image">
+	<meta content="{{site.addr}}{{site.image}}" name="image">
+	<link href="{{site.addr}}{{site.favicon}}" rel="icon">
+	<meta name="twitter:card" content="summary"/>
+	<meta name="twitter:site" content="{{site.domain}}"/>
+	<meta name="twitter:title" content="{{site.slogan}}"/>
+	<meta name="title" content="{{site.slogan}}"/>
+	<meta name="twitter:description" content="{{site.description}}"/>
+	<link href="{{site.addr}}{{site.appleFavicon}}" rel="apple-touch-icon">
+	<meta name="twitter:creator" content="{{site.brand}}"/>
+	<meta name="twitter:image" content="{{site.addr}}{{site.image}}"/>
+	<script src="/frameworks/socket.io.js"></script>
+	<script src="/frameworks/jquery/jquery-3.4.1.min.js"></script>
+	<script src="/frameworks/popper/popper.min.js"></script>
+	<link rel="stylesheet" href="/frameworks/bootstrap/css/bootstrap.min.css">
+	<script src="/frameworks/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/siofu/client.js"></script>
+	<link href="/frameworks/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<script src="/frameworks/bootbox.min.js"></script>
+	<script type="text/javascript">
+	var socket = io("{{site.addr}}",{
+		query:{token:"{{site.socketToken}}"}
+	});
+	var dnow = {{dnow}};
+	var year = {{date.year}};
+	var siteurl = "{{site.addr}}";
+	var csrfx = "{{_csrfToken}}";
+	const cur = {
+	'sym':'{{{site.currency}}}',
+	'abb':'{{site.currencyABBR}}'
+	};
+	</script>
+	<script src="/js/all.js"></script>
+	<script src="/js/main.js"></script>
+	<link rel="stylesheet" href="/css/all.css" />
+	<link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+	{{{body}}} 
+<div id="note" class=""><div id="note-head"><i id="node-head-left" class="fa fa-bell"></i><div><i onclick="muteNote()" id="node-head-right" class="fa fa-bell-slash-o"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i onclick="closeNote()" id="node-head-right" class="fa fa-close"></i></div></div><div id="note-body"><p id="noti" class="panP light-grey"></p></div></div>
+<input type="hidden" id="activeuser" value="{{activeUser}}" readonly>
+<div id="tab-picture" class="tab">
+		<div id="picture-view">
+			<img id="picture-img" src="" alt="">
+			<button onclick="cli()" id="picture-btn"><i class="fa fa-close"></i></button>
+		</div>
+	</div>
+
+<div id="tab-event" class="tab">
+    <div class="headerx white-bg light-bot">
+        <p id="ev-head" class="dark-grey">Event</p>
+        <button onclick="cli()" class="no-bg grey"><i class="fa fa-close"></i></button>
+    </div>
+    <div class="conx padten">
+        <div id="event" class="well white-bg padten">
+        </div>
+    </div>
+</div>
+<!-- audio player interface-->
+	<div id="audio"><div id="audioLeft"><div id="audioLeftLeft"><img id="audioImage" class="img_res" src=""><div id="audioFeedback"><i id="audioMessage" class="fa fa-warning"></i></div></div><div id="audioLeftRight"><div id="audioTrack"><span id="audioCurrentTime" class="audioDigits">0:00</span><div id="audioCurrentTrack"><div id="audioKeep"></div></div><span id="audioTotalTime" class="audioDigits">0:00</span></div><div id="audioButtons"><button id="audioStop" onclick="audioStop()"><i class="fa fa-stop"></i></button><button id="audioPlay" onclick="audioPlay()"><i class="fa fa-play"></i></button><button id="audioHide" onclick="toggleAudio()"><i class="fa fa-close"></i></button></div></div></div><div onclick="toggleAudio()" id="audioRight"><i class="fa fa-chevron-right"></i></div></div>
+
+</body>
+</html>
+	
+
+

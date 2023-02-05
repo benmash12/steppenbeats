@@ -1,0 +1,41 @@
+{{>header}}
+<br>
+<div class="conx padten">
+    <div class="real-bord radthree overhide">
+        <div id="dbh" class="dark-green-bg black-out">
+            <div id="dbh-left" class="light-green">
+                Dashboard
+            </div>
+            <div id="dbh-right">
+                <button onclick="userSettings()"><i class="fa fa-cog green"></i></button>
+                <button onclick="tab('support');userSeen();"><i class="fa fa-support green"></i><span id="supportCount" class="badge red-bg"></span></button>
+                <button onclick="userLogout()"><i class="fa fa-power-off light-green"></i></button>
+            </div>
+        </div>
+        <div class="dark-green-bg padten black-outx">
+            <h1 id="welc" class="light-green">Sign-in Successful!</span></h1>
+            <br>
+            <h3 class="heading black-green">My Orders</h3>
+            <div id="orders">
+                <p class="padten text-center overhide light-green"><i class="fa fa-spinner fa-pulse"></i> loading my orders...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="tab silver-bg" id="tab-support">
+	<div data-username="userone" id="mhead" class="mhead">
+		<p onclick="" class="texify">Chat With Admin(Support)</p>
+		<button onclick="minfo()"><i class="fa fa-info-circle"></i></button>
+		<button onclick="cli()"><i class="fa fa-close"></i></button>
+	</div>
+	<div id="mholder" class="">
+		
+	</div>
+	
+	<div id="msend" data-user="" class="msend">
+		<textarea id="mtext" placeholder="type message..."></textarea>
+		<button id="sendBtnxx" onclick="sendPic()"><i class="fa fa-camera"></i></button>
+	</div>
+</div>

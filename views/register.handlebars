@@ -1,0 +1,46 @@
+{{>header}}
+
+<div class="padten cont titi">
+    <div class="padten semi-white-bg black-outx">
+        <h1 class="panH2 light-green no-side-padding no-side-margin slim">Sign Up</h1>
+        <p class="panP no-side-padding no-side-margin light-green slim"><small>Please fill in the following fields correctly. All fields with <span class="red">*</span> are required.</small></p>
+
+		<div class="inp martwenty no-side-margin">
+			<p class="panP no-margin no-padding titi"><span class="thick green">Full Name <span class="red">*</span></span><br>
+			<small class="light-green slim">Type in your full name. Two or three names are acceptable. Note that characters that are not letters, spaces, hyphens(-) or apostrophes(') are not aceeptable.</small></p>
+			<input id="regfn" name="fullname" maxlength="100" type="text" class="wide light-border padten font14 radfive white-bg slim dark-green">
+		</div>
+
+
+        <div class="inp martwenty no-side-margin">
+			<p class="panP no-margin no-padding titi"><span class="thick green">Email <span class="red">*</span></span><br>
+			<small class="light-green slim">Type in your email address.</small></p>
+			<input id="regem" name="email" maxlength="75" type="email" class="wide light-border padten font14 radfive white-bg slimdark-green">
+		</div>
+
+        <div class="inp martwenty no-side-margin">
+			<p class="panP no-margin no-padding titi"><span class="thick green">Create A Password <span class="red">*</span></span><br>
+			<small class="light-green slim">Password must contain at least one letter, one number, and must be between 6 - 30 characters long. And must not contain spaces.</small></p>
+			<input id="regpw" name="password" type="password" class="wide light-border padten font14 radfive white-bg slim dark-green">
+		</div>
+
+         <div class="inp martwenty no-side-margin">
+			<p class="panP no-margin no-padding titi"><span class="thick green">Confirm Password <span class="red">*</span></span><br>
+			<small class="light-green slim">Type in your password again, it must be the same with the password in the field above.</small></p>
+			<input id="regcpw" name="password" type="password" class="wide light-border padten font14 radfive white-bg slim dark-green">
+		</div>
+        <p class="panP light-green slim martwenty no-side-margin no-side-padding">
+			By clicking the button below, I have read and agreed to the <a class="green" target="_blank" href="/terms-and-conditions">Terms and conditions</a> and <a class="green" target="_blank" href="/privacy-policy">Privacy Policy</a> of {{site.brand}}.
+        </p>
+        <button onclick="userReg()" class="panButton green-bg black-out dark-green radfive">Sign Up</button>
+		<p class="panP no-padding titi light-green">
+			Already signed up? <a class="green" href="/account/sign-in">Click here to Sign In</a>
+		</p>
+    </div>
+</div>
+
+<script>
+    var forbidden = /{{site.forbidden}}/ig;
+</script>
+
+{{>footer}}

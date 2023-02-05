@@ -1,0 +1,4 @@
+User-agent: * 
+Disallow: /admin
+Disallow: /account/dashboard
+Sitemap: https://steppenbeats.com/sitemap.xml

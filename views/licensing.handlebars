@@ -1,0 +1,31 @@
+{{>header}}
+
+    <div class="conx overhide padten">
+		<div class="wide radthree padten dark-green-bg real-bord">
+			<h2 class="heading black-green">Licensing</h2>
+            <div class="panel no-border lightx-bg">
+                <div class="panel-heading dark-green-bg  black-out"><strong class="green thick">Download License</strong></div>
+                <div class="panel-body no-bg">
+                    <p class="panP no-margin light-green">Click the button below to download license. Note that you can only download a license when you are logged in to the account used to make the order, or you are here directly from the 'downloads access' page.</p>
+                    <div class="text-center">
+                        <button onclick="downloadLicense(null)" class="panButton green-bg black-out radfive dark-green">Download License</button>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="panel no-border lightx-bg">
+                <div class="panel-heading dark-green-bg  black-out"><strong class="green thick">Verify License</strong></div>
+                <div class="panel-body no-bg">
+                    <p class="panP no-margin light-green">Click the button below if you are here to verify the validity of a license, who the third party is and the items included in it.</p>
+                    <div class="text-center">
+                        <button onclick="verifyLicense()" class="panButton green-bg black-out radfive dark-green">Verify License</button>
+                    </div>
+                </div>
+            </div>
+		</div>
+    </div>
+
+    {{>footer}}
+    {{#if oid}}
+    <script>$(document).ready(function(e){downloadLicense('{{oid}}')});</script>
+    {{/if}}

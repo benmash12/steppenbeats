@@ -1,0 +1,59 @@
+{
+	"notification": "This file has been modified to ensure privacy of keys",
+	"domain":"steppenbeats.com",
+	"brand":"Steppen Beats",
+	"brandLink":"/",
+	"mode":"prod",
+	"prod":{
+		"sql":{
+			"host":"eu-cdbr-west-01.cleardb.com",
+			"user":"",
+			"pass":"",
+			"db":""
+		},
+		"addr":"https://steppenbeats.com"
+	},
+	"dev":{
+		"sql":{
+			"host":"localhost",
+			"user":"root",
+			"pass":"",
+			"db":"steppenbeats"
+		},
+		"addr":"http://localhost:3000"
+	},
+	"slogan":"Download Premium/Free Beats and Sample Packs | Steppen Beats",
+	"intro":"UNLEASH THE MONSTER IN YOU",
+	"parseLimit":10,
+	"logo":"/img/logo.png",
+	"image":"/img/banner.png",
+	"currency":"US&#36;",
+	"currencyABBR":"USD",
+	"fetchLimit":10,
+	"fetchMax":1000,
+	"viewed":4,
+	"icon":"/icon.png",
+	"favicon":"/favicon.ico",
+	"privilege":"bigben",
+	"appleFavicon":"/favicon.ico",
+	"themeColor":"#386020",
+	"keywords":"beats,freebeats, sample packs, steppenbeats, trap beats, afro beats",
+	"phpServer":"https://salty-bastion-91179.herokuapp.com/",
+	"phpToken":"djhhgf8uhfruerf8yeruee90uefherfcehew8jd9e8huwf89cehwvjvbbibeoibrieihwigcheuvvv9rh9",
+	"email":"admin@steppenbeats.com",
+	"description":"Steppen Beats' Official Website where you can buy/download beats and sample packs.",
+	"facebook":"http://fb.me/steppenbeats",
+	"soundcloud":"https://soundcloud.app.goo.gl/ckTmh",
+	"youtube":"https://www.youtube.com/channel/UCtqcuF5ccrFU_TGYKt-lb8w",
+	"forbidden":"nigger|bitch|fuck|shit|admin",
+	"phone":"+2348037121626",
+	"instagram":"https://instagram.com/steppen_beats",
+	"socketToken":"7327daa335abbff466283b44712c2a748da07804a904ccbc3cb2425b3a7e73547327daa335abbff466283b44712c2a748da07804a904ccbc3cb2425b3a7e73547327daa335abbff466283b44712c2a748da07804a904ccbc3cb2425b3a7e73547327daa335abbff466283b44712c2a748da07804a904ccbc3cb2425b3a7e73547327daa335abbff466283b44712c2a748da07804a904ccbc3cb2425b3a7e73547327daa335abbff466283b44712c2a748da07804a904ccbc3cb2425b3a7e73547327daa335abbff466283b44712c2a748da07804a904ccbc3cb2425b3a7e73547327daa335abbff466283b44712c2a748da07804a904ccbc3cb2425b3a7e73547327daa335abbff466283b44712c2a748da07804a904ccbc3cb2425b3a7e73547327daa335abbff466283b44712c2a748da07804a904ccbc3cb2425b3a7e7354",
+	"maintenance":false,
+	"smtp":{
+		"host":"in-v3.mailjet.com",
+		"user":"",
+		"port":587,
+		"pass":""
+	}
+}
